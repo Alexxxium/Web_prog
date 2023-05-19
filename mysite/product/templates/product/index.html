@@ -1,14 +1,19 @@
 {%extends 'home/top_menu.html'%}
 {% block content %}
+</br>
+<div class="container">
+    <a href="{% url 'Product_type_create_url' %}" class="btn btn-success">Создать</a>
+</div>
   {% for product_type in product_types %}
     <br>
-    <div class=""container>
+    <div class="container">
       <div class="card" style="width: 18rem;">
           <img src="..." class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Название карточки</h5>
+            <h5 class="card-title">{{product_type.title}}</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="{% url 'Product_type_update_url' pk=product_type.id %}" class="btn btn-warning">Обновить</a>
+            <a href="{% url 'Product_type_delete_url' pk=product_type.id %}" class="btn btn-danger">Удалить</a>
           </div>
       </div>
     </div>
